@@ -1,0 +1,49 @@
+{
+  "name": "pc-checcer",
+  "version": "1.0.0",
+  "description": "PC hardware checker and upgrade advisor desktop app",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "build": "electron-builder --win"
+  },
+  "build": {
+    "appId": "com.pc.checcer",
+    "productName": "PC Checcer",
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": ["x64"]
+        }
+      ],
+      "icon": "build/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "installerIcon": "build/icon.ico",
+      "uninstallerIcon": "build/icon.ico"
+    }
+  },
+  "keywords": [
+    "pc",
+    "hardware",
+    "upgrade",
+    "desktop",
+    "windows"
+  ],
+  "author": "sadikopoli",
+  "license": "MIT",
+  "dependencies": {
+    "systeminformation": "^5.22.0"
+  },
+  "devDependencies": {
+    "electron": "^31.7.1",
+    "electron-builder": "^24.13.0"
+  }
+}
