@@ -2,6 +2,7 @@
 * { box-sizing:border-box; }
 html { scroll-behavior:smooth; }
 body { margin:0; background:linear-gradient(180deg, #eef4ff 0%, #f9fbff 100%); color:var(--ink); font-family:'DM Sans',sans-serif; }
+body.modal-open { overflow:hidden; }
 button { font:inherit; }
 .app-shell { display:flex; min-height:100vh; }
 .sidebar { background:#0f172a; color:#fff; width:254px; flex-shrink:0; padding:29px 20px 25px; display:flex; flex-direction:column; position:fixed; inset:0 auto 0 0; }
@@ -99,7 +100,29 @@ button { font:inherit; }
 .close-insight { margin-left:auto; background:none; border:0; color:#9aa8bd; font-size:21px; cursor:pointer; }
 footer { display:flex; justify-content:space-between; color:#a8b2c0; font-size:10px; margin-top:31px; padding:0 3px; }
 footer b { color:#d6dce5; padding:0 5px; }
-.toast { position:fixed; bottom:25px; right:25px; background:#16243a; color:white; border-radius:8px; padding:13px 17px; font-size:12px; opacity:0; transform:translateY(12px); transition:.3s; pointer-events:none; }
-.toast.show { opacity:1; transform:none; }
-@media (max-width:950px) { .sidebar { width:205px; } .main { margin-left:205px; width:calc(100% - 205px); padding:0 4% 30px; } .content-grid { grid-template-columns:1fr; } .score-grid { grid-template-columns:1fr 1fr; } .score-card { grid-column:span 2; } }
-@media (max-width:650px) { .sidebar { position:static; width:100%; height:auto; padding:18px 15px; display:block; } .app-shell { display:block; } .brand { justify-content:center; } .nav { margin-top:18px; display:flex; justify-content:center; } .nav-link { padding:9px 11px; font-size:11px; } .nav-link span { display:none; } .sidebar-tip, .sidebar-footer { display:none; } .main { margin:0; width:100%; padding:0 18px 25px; } .topbar { height:62px; } .hero { display:block; padding:34px 0 28px; } .hero h1 { font-size:29px; } .scan-button { margin-top:22px; } .system-box { margin-top:8px; } .score-grid { display:block; } .score-card, .mini-stat { margin-bottom:14px; } .score-card { min-height:160px; } .score-ring { width:90px; height:90px; } .score-ring:before { width:74px; height:74px; } .content-grid { display:block; } .panel { margin-bottom:14px; padding:22px 19px; } .insight-strip { align-items:start; } .insight-strip p { line-height:1.45; } footer { display:block; line-height:2; } footer span { display:block; } }
+.modal-backdrop { position:fixed; inset:0; z-index:20; display:grid; place-items:center; padding:28px; background:rgba(15,23,42,.62); backdrop-filter:blur(8px); opacity:0; visibility:hidden; transition:.22s ease; }
+.modal-backdrop.is-open { opacity:1; visibility:visible; }
+.details-modal, .upgrade-modal { background:#fff; border:1px solid #e5eaf2; border-radius:22px; box-shadow:0 24px 80px rgba(15,23,42,.28); position:relative; transform:translateY(16px) scale(.98); transition:.22s ease; }
+.modal-backdrop.is-open .details-modal, .modal-backdrop.is-open .upgrade-modal { transform:none; }
+.details-modal { width:min(1080px, 94vw); min-height:min(680px, 88vh); padding:42px 46px; }
+.modal-header h2, .upgrade-modal h2 { font:600 28px 'Space Grotesk'; letter-spacing:-.7px; margin:9px 0 8px; }
+.modal-header p, .upgrade-intro { color:#8996a9; font-size:13px; margin:0; }
+.modal-close { position:absolute; top:18px; right:20px; width:34px; height:34px; border:0; background:#f1f4f8; color:#7b889b; border-radius:50%; font-size:24px; line-height:1; cursor:pointer; }
+.modal-close:hover { background:#e4e9f2; color:var(--ink); }
+.details-layout { display:grid; grid-template-columns:1.1fr .9fr; gap:62px; margin-top:46px; align-items:center; }
+.modal-components > .section-label { display:block; margin-bottom:19px; }
+.modal-component-row { display:grid; grid-template-columns:44px 1fr auto; align-items:center; gap:14px; padding:15px 0; border-bottom:1px solid var(--line); }
+.modal-component-row .component-icon { width:44px; height:44px; }
+.component-status { font-size:11px; font-weight:700; }
+.excellent-text { color:#31b987; }.good-text { color:#5973df; }.okay-text { color:#e6954c; }
+.health-summary { text-align:center; background:#f7f9fd; border:1px solid #edf1f6; border-radius:18px; padding:31px 28px; }
+.health-summary > .section-label { display:block; }
+.health-donut { --value:78; width:205px; height:205px; border-radius:50%; background:conic-gradient(var(--blue) calc(var(--value) * 1%), #e7edf7 0); display:grid; place-items:center; position:relative; margin:24px auto 18px; }
+.health-donut::before { content:''; position:absolute; inset:18px; background:#f7f9fd; border-radius:50%; }
+.health-donut div { position:relative; z-index:1; }.health-donut strong { display:block; font:600 45px 'Space Grotesk'; }.health-donut small { color:#8c99aa; font-size:12px; }
+.health-summary h3 { font:600 22px 'Space Grotesk'; margin:0 0 7px; }.health-summary p { color:#8b98aa; font-size:12px; line-height:1.5; margin:0 auto 21px; max-width:280px; }
+.health-legend { display:flex; justify-content:center; gap:14px; flex-wrap:wrap; color:#8693a7; font-size:10px; }.legend-dot { width:8px; height:8px; display:inline-block; border-radius:50%; margin-right:4px; }.legend-dot.excellent { background:#31b987; }.legend-dot.good { background:#5973df; }.legend-dot.okay { background:#e6954c; }
+.upgrade-modal { width:min(760px, 92vw); padding:37px 39px 33px; }.upgrade-modal-icon { width:43px; height:43px; display:grid; place-items:center; color:#e99549; background:#fff1e5; border-radius:13px; font-size:23px; margin-bottom:17px; }.upgrade-list { display:grid; gap:10px; margin-top:27px; }.upgrade-row { display:grid; grid-template-columns:28px 38px 1fr auto; align-items:center; gap:12px; padding:13px 0; border-bottom:1px solid var(--line); }.upgrade-row:last-child { border-bottom:0; }.upgrade-rank { color:#a2adbd; font:600 11px 'Space Grotesk'; }.upgrade-copy strong, .upgrade-copy span, .upgrade-price strong, .upgrade-price span { display:block; }.upgrade-copy strong { font-size:12px; }.upgrade-copy span, .upgrade-price span { color:#9aa6b7; font-size:10px; margin-top:4px; }.upgrade-price { text-align:right; }.upgrade-price strong { font:600 14px 'Space Grotesk'; }
+.toast { position:fixed; bottom:25px; right:25px; background:#16243a; color:white; border-radius:8px; padding:13px 17px; font-size:12px; opacity:0; transform:translateY(12px); transition:.3s; pointer-events:none; z-index:30; }.toast.show { opacity:1; transform:none; }
+@media (max-width:950px) { .sidebar { width:205px; }.main { margin-left:205px; width:calc(100% - 205px); padding:0 4% 30px; }.content-grid { grid-template-columns:1fr; }.score-grid { grid-template-columns:1fr 1fr; }.score-card { grid-column:span 2; }.details-layout { gap:26px; } }
+@media (max-width:650px) { .sidebar { position:static; width:100%; height:auto; padding:18px 15px; display:block; }.app-shell { display:block; }.brand { justify-content:center; }.nav { margin-top:18px; display:flex; justify-content:center; }.nav-link { padding:9px 11px; font-size:11px; }.nav-link span { display:none; }.sidebar-tip,.sidebar-footer { display:none; }.main { margin:0; width:100%; padding:0 18px 25px; }.topbar { height:62px; }.hero { display:block; padding:34px 0 28px; }.hero h1 { font-size:29px; }.scan-button { margin-top:22px; }.system-box { margin-top:8px; }.score-grid { display:block; }.score-card,.mini-stat { margin-bottom:14px; }.score-card { min-height:160px; }.score-ring { width:90px; height:90px; }.score-ring:before { width:74px; height:74px; }.content-grid { display:block; }.panel { margin-bottom:14px; padding:22px 19px; }.insight-strip { align-items:start; }.insight-strip p { line-height:1.45; }footer { display:block; line-height:2; }footer span { display:block; }.modal-backdrop { padding:12px; }.details-modal { width:100%; min-height:0; max-height:94vh; overflow:auto; padding:32px 21px 24px; }.modal-header h2,.upgrade-modal h2 { font-size:23px; }.details-layout { grid-template-columns:1fr; gap:24px; margin-top:28px; }.health-summary { padding:23px 15px; }.health-donut { width:155px; height:155px; }.health-donut::before { inset:14px; }.health-donut strong { font-size:34px; }.upgrade-modal { width:100%; padding:31px 20px 23px; max-height:90vh; overflow:auto; }.upgrade-row { grid-template-columns:22px 38px 1fr; }.upgrade-price { grid-column:3; text-align:left; }.upgrade-price span { display:inline-block; margin-left:7px; } }

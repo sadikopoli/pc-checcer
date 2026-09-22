@@ -30,13 +30,7 @@
         <button class="scan-button" id="scanBtn"><span class="scan-icon">↻</span> Aggiorna analisi</button>
       </section>
 
-      <section class="system-box" aria-label="Sistema operativo">
-        <div class="system-icon">◫</div>
-        <div>
-          <span class="section-label">SISTEMA OPERATIVO</span>
-          <h3 id="osInfo">Windows 11 Pro · 64 bit</h3>
-        </div>
-      </section>
+      <section class="system-box" aria-label="Sistema operativo"><div class="system-icon">◫</div><div><span class="section-label">SISTEMA OPERATIVO</span><h3 id="osInfo">Windows 11 Pro · 64 bit</h3></div></section>
 
       <section class="score-grid" aria-label="Punteggio del PC">
         <article class="score-card"><div class="score-copy"><span class="section-label">PUNTEGGIO GENERALE</span><div class="score-number"><strong id="score">78</strong><span>/ 100</span></div><p><span class="trend" id="trendValue">↗ 4%</span> rispetto all'ultima analisi</p></div><div class="score-ring" id="scoreRing" style="--value:78"><div><strong id="scoreLabel">78</strong><small>BUONO</small></div></div></article>
@@ -52,6 +46,22 @@
       <footer><span>PC Checcer <b>·</b> Web app</span><span><span class="status-dot"></span> Nessun dato inviato online</span></footer>
     </main>
   </div>
+
+  <div class="modal-backdrop" id="detailsModal" aria-hidden="true">
+    <section class="details-modal" role="dialog" aria-modal="true" aria-labelledby="detailsTitle">
+      <button class="modal-close" data-close-modal="detailsModal" aria-label="Chiudi dettagli">×</button>
+      <div class="modal-header"><span class="section-label">ANALISI COMPLETA</span><h2 id="detailsTitle">I componenti del tuo PC</h2><p>Una panoramica semplice e chiara dello stato della tua configurazione.</p></div>
+      <div class="details-layout"><div class="modal-components"><span class="section-label">COMPONENTI RILEVATI</span><div id="modalComponentList"></div></div><div class="health-summary"><span class="section-label">STATO GENERALE</span><div class="health-donut" id="healthDonut"><div><strong>78</strong><small>/ 100</small></div></div><h3 id="healthTitle">Non male</h3><p id="healthText">La configurazione è equilibrata. Hai una buona base per lavorare e giocare.</p><div class="health-legend"><span><i class="legend-dot excellent"></i> Benissimo</span><span><i class="legend-dot good"></i> Buono</span><span><i class="legend-dot okay"></i> Non male</span></div></div></div>
+    </section>
+  </div>
+
+  <div class="modal-backdrop" id="upgradeModal" aria-hidden="true">
+    <section class="upgrade-modal" role="dialog" aria-modal="true" aria-labelledby="upgradeTitle">
+      <button class="modal-close" data-close-modal="upgradeModal" aria-label="Chiudi consigli">×</button>
+      <div class="upgrade-modal-icon">✦</div><span class="section-label">UPGRADE CONSIGLIATI</span><h2 id="upgradeTitle">Cosa conviene migliorare</h2><p class="upgrade-intro">Abbiamo ordinato i componenti dal miglior investimento al meno urgente.</p><div class="upgrade-list" id="upgradeList"></div>
+    </section>
+  </div>
+
   <div class="toast" id="toast" role="status">Analisi aggiornata ✓</div>
   <script src="app.js"></script>
 </body>
