@@ -29,11 +29,21 @@
         <div><p class="eyebrow">ANALISI COMPLETATA <span class="live-dot"></span></p><h1 id="greetingLine">Ciao, <em>utente</em>.<br>Conosci meglio il tuo PC.</h1><p class="hero-copy">Analizziamo i componenti principali, verifichiamo lo stato generale e ti consigliamo il miglior upgrade.</p></div>
         <button class="scan-button" id="scanBtn"><span class="scan-icon">↻</span> Aggiorna analisi</button>
       </section>
+
+      <section class="system-box" aria-label="Sistema operativo">
+        <div class="system-icon">◫</div>
+        <div>
+          <span class="section-label">SISTEMA OPERATIVO</span>
+          <h3 id="osInfo">Windows 11 Pro · 64 bit</h3>
+        </div>
+      </section>
+
       <section class="score-grid" aria-label="Punteggio del PC">
         <article class="score-card"><div class="score-copy"><span class="section-label">PUNTEGGIO GENERALE</span><div class="score-number"><strong id="score">78</strong><span>/ 100</span></div><p><span class="trend" id="trendValue">↗ 4%</span> rispetto all'ultima analisi</p></div><div class="score-ring" id="scoreRing" style="--value:78"><div><strong id="scoreLabel">78</strong><small>BUONO</small></div></div></article>
         <article class="mini-stat"><div class="stat-icon cpu">⌘</div><span class="section-label">PRESTAZIONI</span><strong id="performanceLabel">Buone</strong><p id="performanceText">CPU e scheda video solide, con spazio da migliorare.</p></article>
         <article class="mini-stat"><div class="stat-icon temp">♨</div><span class="section-label">TEMPERATURA</span><strong id="tempValue">38° <small>C</small></strong><p class="green-text">✓ Dato non disponibile nel browser</p></article>
       </section>
+
       <section class="content-grid" id="components">
         <div class="panel components-panel"><div class="panel-heading"><div><span class="section-label">IL TUO HARDWARE</span><h2>I componenti del PC</h2></div><button class="text-button" id="detailsBtn">Vedi dettagli <span>→</span></button></div><div class="component-list" id="componentList"></div></div>
         <div class="panel recommendation-panel" id="recommendations"><div class="panel-heading"><div><span class="section-label">IL NOSTRO CONSIGLIO</span><h2>Da migliorare</h2></div><span class="priority-badge">PRIORITÀ MEDIA</span></div><div class="recommendation-main"><div class="upgrade-orb">↗</div><div><h3 id="adviceTitle">Più spazio per i tuoi progetti</h3><p id="adviceText">Il tuo disco è quasi pieno. Un SSD più capiente renderà il PC più veloce e ti darà lo spazio che ti serve.</p></div></div><div class="upgrade-meta"><div><span>Impatto stimato</span><strong>+18% <small>velocità percepita</small></strong></div><div><span>Investimento</span><strong>€ 60–90 <small>circa</small></strong></div></div><button class="primary-button" id="upgradeBtn">Scopri l'upgrade ideale <span>→</span></button></div>

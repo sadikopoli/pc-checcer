@@ -25,6 +25,14 @@ function showToast(message) {
   toastTimer = setTimeout(() => toast.classList.remove('show'), 2800);
 }
 
+function detectOperatingSystem() {
+  const userAgent = navigator.userAgent;
+  if (userAgent.includes('Windows')) return 'Windows 11 Pro · 64 bit';
+  if (userAgent.includes('Mac')) return 'macOS Sonoma · 64 bit';
+  if (userAgent.includes('Linux')) return 'Linux Ubuntu · 64 bit';
+  return 'Sistema operativo non rilevato';
+}
+
 document.getElementById('scanBtn').addEventListener('click', (event) => {
   const button = event.currentTarget;
   button.disabled = true;
@@ -43,4 +51,5 @@ document.querySelector('.close-insight').addEventListener('click', (event) => ev
 const hour = new Date().getHours();
 const greeting = hour < 12 ? 'Buongiorno' : hour >= 18 ? 'Buonasera' : 'Buon pomeriggio';
 document.getElementById('greetingLine').innerHTML = `${greeting}, <em>utente</em>.<br>Conosci meglio il tuo PC.`;
+document.getElementById('osInfo').textContent = detectOperatingSystem();
 renderComponents();
