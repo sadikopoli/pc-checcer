@@ -14,130 +14,35 @@
   <div class="app-shell">
     <aside class="sidebar">
       <a class="brand" href="#top" aria-label="Logo PC Checcer"><span class="brand-mark">⌁</span><span>PC <b>Checcer</b></span></a>
-
       <nav class="nav" aria-label="Navigazione principale">
         <a class="nav-link active" href="#overview"><span>◈</span> Panoramica</a>
         <a class="nav-link" href="#components"><span>▦</span> Componenti</a>
         <a class="nav-link" href="#recommendations"><span>✦</span> Consigli</a>
       </nav>
-
-      <div class="sidebar-tip">
-        <span class="tip-icon">✺</span>
-        <strong>Il tuo PC può dare di più.</strong>
-        <p>Scopri qual è il prossimo upgrade più conveniente.</p>
-        <a href="#recommendations">Vedi i consigli →</a>
-      </div>
-
-      <div class="sidebar-footer"><span class="status-dot"></span> Desktop app · Windows</div>
+      <div class="sidebar-tip"><span class="tip-icon">✺</span><strong>Il tuo PC può dare di più.</strong><p>Scopri qual è il prossimo upgrade più conveniente.</p><a href="#recommendations">Vedi i consigli →</a></div>
+      <div class="sidebar-footer"><span class="status-dot"></span> Web app · Analisi demo</div>
     </aside>
 
     <main class="main" id="top">
-      <header class="topbar">
-        <div class="breadcrumb">Dashboard <span>/</span> Panoramica</div>
-        <div class="top-actions">
-          <button class="icon-button" aria-label="Notifiche">♧</button>
-          <div class="avatar">PC</div>
-        </div>
-      </header>
-
+      <header class="topbar"><div class="breadcrumb">Dashboard <span>/</span> Panoramica</div><div class="top-actions"><button class="icon-button" aria-label="Notifiche">♧</button><div class="avatar">PC</div></div></header>
       <section class="hero" id="overview">
-        <div>
-          <p class="eyebrow">ANALISI COMPLETATA <span class="live-dot"></span></p>
-          <h1 id="greetingLine">Ciao, <em>utente</em>.<br>Conosci meglio il tuo PC.</h1>
-          <p class="hero-copy">Analizziamo i componenti principali, verificiamo lo stato generale e ti consigliamo il miglior upgrade.</p>
-        </div>
+        <div><p class="eyebrow">ANALISI COMPLETATA <span class="live-dot"></span></p><h1 id="greetingLine">Ciao, <em>utente</em>.<br>Conosci meglio il tuo PC.</h1><p class="hero-copy">Analizziamo i componenti principali, verifichiamo lo stato generale e ti consigliamo il miglior upgrade.</p></div>
         <button class="scan-button" id="scanBtn"><span class="scan-icon">↻</span> Aggiorna analisi</button>
       </section>
-
       <section class="score-grid" aria-label="Punteggio del PC">
-        <article class="score-card">
-          <div class="score-copy">
-            <span class="section-label">PUNTEGGIO GENERALE</span>
-            <div class="score-number"><strong id="score">0</strong><span>/ 100</span></div>
-            <p><span class="trend" id="trendValue">↗ 0%</span> rispetto all'ultima analisi</p>
-          </div>
-          <div class="score-ring" id="scoreRing" style="--value:0">
-            <div><strong id="scoreLabel">0</strong><small>OK</small></div>
-          </div>
-        </article>
-
-        <article class="mini-stat">
-          <div class="stat-icon cpu">⌘</div>
-          <span class="section-label">PRESTAZIONI</span>
-          <strong id="performanceLabel">Caricamento...</strong>
-          <p id="performanceText">Rilevamento hardware in corso.</p>
-        </article>
-
-        <article class="mini-stat">
-          <div class="stat-icon temp">♨</div>
-          <span class="section-label">TEMPERATURA</span>
-          <strong id="tempValue">--° <small>C</small></strong>
-          <p id="tempText" class="green-text">✓ Tempo reale</p>
-        </article>
+        <article class="score-card"><div class="score-copy"><span class="section-label">PUNTEGGIO GENERALE</span><div class="score-number"><strong id="score">78</strong><span>/ 100</span></div><p><span class="trend" id="trendValue">↗ 4%</span> rispetto all'ultima analisi</p></div><div class="score-ring" id="scoreRing" style="--value:78"><div><strong id="scoreLabel">78</strong><small>BUONO</small></div></div></article>
+        <article class="mini-stat"><div class="stat-icon cpu">⌘</div><span class="section-label">PRESTAZIONI</span><strong id="performanceLabel">Buone</strong><p id="performanceText">CPU e scheda video solide, con spazio da migliorare.</p></article>
+        <article class="mini-stat"><div class="stat-icon temp">♨</div><span class="section-label">TEMPERATURA</span><strong id="tempValue">38° <small>C</small></strong><p class="green-text">✓ Dato non disponibile nel browser</p></article>
       </section>
-
       <section class="content-grid" id="components">
-        <div class="panel components-panel">
-          <div class="panel-heading">
-            <div>
-              <span class="section-label">IL TUO HARDWARE</span>
-              <h2>I componenti del PC</h2>
-            </div>
-            <button class="text-button" id="detailsBtn">Vedi dettagli <span>→</span></button>
-          </div>
-          <div class="component-list" id="componentList"></div>
-        </div>
-
-        <div class="panel recommendation-panel" id="recommendations">
-          <div class="panel-heading">
-            <div>
-              <span class="section-label">IL NOSTRO CONSIGLIO</span>
-              <h2>Da migliorare</h2>
-            </div>
-            <span class="priority-badge" id="priorityBadge">PRIORITÀ MEDIA</span>
-          </div>
-
-          <div class="recommendation-main">
-            <div class="upgrade-orb" id="upgradeIcon">↗</div>
-            <div>
-              <h3 id="adviceTitle">Sto analizzando...</h3>
-              <p id="adviceText">In attesa del rilevamento hardware completo.</p>
-            </div>
-          </div>
-
-          <div class="upgrade-meta">
-            <div>
-              <span>Impatto stimato</span>
-              <strong id="impactValue">--</strong>
-            </div>
-            <div>
-              <span>Investimento</span>
-              <strong id="investmentValue">--</strong>
-            </div>
-          </div>
-
-          <button class="primary-button" id="upgradeBtn">Scopri l'upgrade ideale <span>→</span></button>
-        </div>
+        <div class="panel components-panel"><div class="panel-heading"><div><span class="section-label">IL TUO HARDWARE</span><h2>I componenti del PC</h2></div><button class="text-button" id="detailsBtn">Vedi dettagli <span>→</span></button></div><div class="component-list" id="componentList"></div></div>
+        <div class="panel recommendation-panel" id="recommendations"><div class="panel-heading"><div><span class="section-label">IL NOSTRO CONSIGLIO</span><h2>Da migliorare</h2></div><span class="priority-badge">PRIORITÀ MEDIA</span></div><div class="recommendation-main"><div class="upgrade-orb">↗</div><div><h3 id="adviceTitle">Più spazio per i tuoi progetti</h3><p id="adviceText">Il tuo disco è quasi pieno. Un SSD più capiente renderà il PC più veloce e ti darà lo spazio che ti serve.</p></div></div><div class="upgrade-meta"><div><span>Impatto stimato</span><strong>+18% <small>velocità percepita</small></strong></div><div><span>Investimento</span><strong>€ 60–90 <small>circa</small></strong></div></div><button class="primary-button" id="upgradeBtn">Scopri l'upgrade ideale <span>→</span></button></div>
       </section>
-
-      <section class="insight-strip">
-        <div class="insight-icon">✦</div>
-        <div>
-          <strong id="insightTitle">Un piccolo upgrade, una grande differenza.</strong>
-          <p id="insightText">Ti aiuta a capire dove conviene spendere e cosa rendere il PC più veloce e stabile.</p>
-        </div>
-        <button class="close-insight" aria-label="Chiudi">×</button>
-      </section>
-
-      <footer>
-        <span>PC Checcer <b>·</b> Desktop app per Windows</span>
-        <span><span class="status-dot"></span> Dati rilevati localmente</span>
-      </footer>
+      <section class="insight-strip"><div class="insight-icon">✦</div><div><strong>Un piccolo upgrade, una grande differenza.</strong><p>La CPU e la scheda video sono ancora ottime. Concentrati sullo spazio di archiviazione.</p></div><button class="close-insight" aria-label="Chiudi">×</button></section>
+      <footer><span>PC Checcer <b>·</b> Web app</span><span><span class="status-dot"></span> Nessun dato inviato online</span></footer>
     </main>
   </div>
-
-  <div class="toast" id="toast" role="status">Aggiornamento completato ✓</div>
-
+  <div class="toast" id="toast" role="status">Analisi aggiornata ✓</div>
   <script src="app.js"></script>
 </body>
 </html>

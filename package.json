@@ -1,5 +1,10 @@
-const { contextBridge, ipcRenderer } = require('electron');
-
-contextBridge.exposeInMainWorld('pcCheccerAPI', {
-  getSystemInfo: () => ipcRenderer.invoke('get-system-info')
-});
+{
+  "name": "pc-checcer",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Dashboard web per analizzare i componenti del PC e consigliare upgrade",
+  "scripts": {
+    "start": "npx serve .",
+    "dev": "npx serve ."
+  }
+}
